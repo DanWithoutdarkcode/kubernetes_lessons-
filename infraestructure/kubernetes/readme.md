@@ -2,7 +2,7 @@
 
 ## Link de resources "kind"
 
-Lectura
+Lectura https://kind.sigs.k8s.io/docs/user/quick-start/
 
 ## Comandos para arrancar cluster de jubernetes
 
