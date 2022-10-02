@@ -24,3 +24,9 @@ kubectl apply -f baeldung-service.yaml
 ## Ver servicios
 
 kubectl get services
+
+# Test
+
+curl [IP cluster]/baeldung
+
+curl 192.168.137.129/baeldung
