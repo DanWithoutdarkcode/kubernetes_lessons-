@@ -12,11 +12,15 @@ kind create cluster --name cluster-apps --config /opt/kubernetes/cluster/cluster
 ## Con este comando eliminamos todo nuestro cluster
 kind delete cluster --name cluster-apps
 
-# Desplegamos el ingress controller en nuestro cluster
+## Desplegamos el ingress controller en nuestro cluster
 
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 
-# Deploy hello world
+## Deploy hello world
 
 
 kubectl apply -f baeldung-service.yaml
+
+## Ver servicios
+
+kubectl get services
