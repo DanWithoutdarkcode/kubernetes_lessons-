@@ -16,8 +16,12 @@ kind delete cluster --name cluster-apps
 
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 
-## Deploy hello world
 
+
+------------------------------------------
+
+
+## Deploy hello world
 
 kubectl apply -f wdc-test-service.yaml
 
@@ -31,9 +35,9 @@ kubectl get all,cm,secret,ing -A
 
 # Test
 
-curl [IP cluster]/baeldung
+curl [IP cluster]/wdc
 
-curl 192.168.137.129/baeldung
+curl 192.168.137.129/wdc
 
 
 # Remover objetos
