@@ -19,14 +19,33 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main
 ## Deploy hello world
 
 
-kubectl apply -f baeldung-service.yaml
+kubectl apply -f wdc-test-service.yaml
 
 ## Ver servicios
 
 kubectl get services
+
+## Revsiar objetos creados
+
+kubectl get all,cm,secret,ing -A
 
 # Test
 
 curl [IP cluster]/baeldung
 
 curl 192.168.137.129/baeldung
+
+
+# Remover objetos
+
+
+kubectl delete -f wdc-test-service.yaml
+
+kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+
+kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
+
+
+## Revsiar objetos creados
+
+kubectl get all,cm,secret,ing -A

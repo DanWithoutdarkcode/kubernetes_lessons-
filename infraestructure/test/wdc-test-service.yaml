@@ -1,23 +1,23 @@
 kind: Pod
 apiVersion: v1
 metadata:
-  name: baeldung-app
+  name: wdc-app
   labels:
-    app: baeldung-app
+    app: wdc-app
 spec:
   containers:
-  - name: baeldung-app
+  - name: wdc-app
     image: hashicorp/http-echo:0.2.3
     args:
-    - "-text=Hello World! This is a Baeldung Kubernetes with kind App"
+    - "-text=Hello World! This is a WithoutDarkCode Kubernetes with kind App"
 ---
 kind: Service
 apiVersion: v1
 metadata:
-  name: baeldung-service
+  name: wdc-service
 spec:
   selector:
-    app: baeldung-app
+    app: wdc-app
   ports:
   # Default port used by the image
   - port: 5678
@@ -25,16 +25,16 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: baeldung-ingress
+  name: wdc-ingress
 spec:
   rules:
   - http:
       paths:
       - pathType: Prefix
-        path: "/baeldung"
+        path: "/wdc"
         backend:
           service:
-            name: baeldung-service
+            name: wdc-service
             port:
               number: 5678
 ---
