@@ -10,8 +10,8 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   storageClassName: mongodb-storageclass
-  local:
-    path: /mnt/data
+  #local:
+  #  path: /mnt/data
   nodeAffinity:
     required:
       nodeSelectorTerms:
