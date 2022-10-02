@@ -29,13 +29,17 @@ nodes:
     listenAddress: "192.168.137.129"
     protocol: udp
   extraMounts:
-  - hostPath: /data/volume
-    containerPath: /data
-    readOnly: false
-    selinuxRelabel: false
-    propagation: HostToContainer	
-#  - containerPath: /etc/docker/daemon.json
-#    hostPath: /etc/docker/daemon.json
+  - hostPath: ./data
+    containerPath: /tmp/data
 - role: worker
+  extraMounts:
+  - hostPath: ./data
+    containerPath: /tmp/data
 - role: worker	
+  extraMounts:
+  - hostPath: ./data
+    containerPath: /tmp/data
 - role: worker
+  extraMounts:
+  - hostPath: ./data
+    containerPath: /tmp/data
