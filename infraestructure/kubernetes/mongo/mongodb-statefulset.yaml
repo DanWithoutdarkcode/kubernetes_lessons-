@@ -42,7 +42,20 @@ spec:
         #  mountPath: /data/db
         - name: vdata
           mountPath: /data/db       
-          subPathExpr: $(POD_NAME)     
+          subPathExpr: $(POD_NAME)           
+        resources:
+            limits:
+              cpu: 200m
+              memory: 500Mi
+            requests:
+              cpu: 100m
+              memory: 200Mi
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.name    
   #volumeClaimTemplates:
   #- metadata:
   #    name: mongo-volume
