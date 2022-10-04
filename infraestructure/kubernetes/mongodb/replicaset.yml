@@ -105,8 +105,7 @@ spec:
           path: /vdata        
       containers:
       - name: mongo
-        image: mongo
-        imagePullPolicy: Never        
+        image: mongo:latest  
         command:
         - bash
         - /config/init.sh
