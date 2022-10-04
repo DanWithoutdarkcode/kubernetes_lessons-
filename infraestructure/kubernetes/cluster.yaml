@@ -28,18 +28,15 @@ nodes:
     hostPort: 1080
     listenAddress: "192.168.137.129"
     protocol: udp
-  extraMounts:
-  - hostPath: ./data
-    containerPath: /tmp/data
 - role: worker
   extraMounts:
-  - hostPath: ./data
-    containerPath: /tmp/data
+    - hostPath: ./data
+      containerPath: /vdata
 - role: worker	
   extraMounts:
-  - hostPath: ./data
-    containerPath: /tmp/data
+    - hostPath: ./data
+      containerPath: /vdata
 - role: worker
   extraMounts:
-  - hostPath: ./data
-    containerPath: /tmp/data
+    - hostPath: ./data
+      containerPath: /vdata
