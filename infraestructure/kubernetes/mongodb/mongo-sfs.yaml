@@ -22,8 +22,7 @@ spec:
           path: /vdata        
       containers:
       - name: mongo
-        image: mongo
-        imagePullPolicy: Never        
+        image: mongo   
         command:
         - bash
         - /config/init.sh
