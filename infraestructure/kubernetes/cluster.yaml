@@ -3,10 +3,10 @@ apiVersion: kind.x-k8s.io/v1alpha4
 networking:
   apiServerAddress: 192.168.137.129
   apiServerPort: 6442
-containerdConfigPatches:
-  - |-
-    [plugins."io.containerd.grpc.v1.cri".registry.mirrors."docker.io"]
-      endpoint = ["http://192.168.137.129:8082"]
+#containerdConfigPatches:
+#  - |-
+#    [plugins."io.containerd.grpc.v1.cri".registry.mirrors."docker.io"]
+#      endpoint = ["http://192.168.137.129:8082"]
 nodes:
 - role: control-plane
   kubeadmConfigPatches:
