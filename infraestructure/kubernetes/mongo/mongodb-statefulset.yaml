@@ -25,13 +25,15 @@ spec:
         ports:
         - containerPort: 27017
         volumeMounts:
-        - name: mongo-volume
-          mountPath: /data/db
-  volumeClaimTemplates:
-  - metadata:
-      name: mongo-volume
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      resources:
-        requests:
-          storage: 1Gi
+        #- name: mongo-volume
+        #  mountPath: /data/db
+        - name: vdata
+          mountPath: /data/db          
+  #volumeClaimTemplates:
+  #- metadata:
+  #    name: mongo-volume
+  #  spec:
+  #    accessModes: [ "ReadWriteOnce" ]
+  #    resources:
+  #      requests:
+  #        storage: 1Gi
