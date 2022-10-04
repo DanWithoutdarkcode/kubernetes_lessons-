@@ -41,7 +41,8 @@ spec:
         #- name: mongo-volume
         #  mountPath: /data/db
         - name: vdata
-          mountPath: /data/db          
+          mountPath: /data/db       
+          subPathExpr: $(POD_NAME)     
   #volumeClaimTemplates:
   #- metadata:
   #    name: mongo-volume
