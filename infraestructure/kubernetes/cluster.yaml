@@ -30,13 +30,13 @@ nodes:
     protocol: udp
 - role: worker
   extraMounts:
-    - hostPath: ./data
+    - hostPath: /data/volume
       containerPath: /vdata
 - role: worker	
   extraMounts:
-    - hostPath: ./data
+    - hostPath: /data/volume
       containerPath: /vdata
 - role: worker
   extraMounts:
-    - hostPath: ./data
+    - hostPath: /data/volume
       containerPath: /vdata
