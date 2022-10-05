@@ -12,11 +12,13 @@ kind create cluster --name cluster-apps --config cluster.yaml
 ## Con este comando eliminamos todo nuestro cluster
 kind delete cluster --name cluster-apps
 
-## Desplegamos el ingress controller en nuestro cluster
+## Desplegamos ingress controller en nuestro cluster
 
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 
+## Desplegamos loadbalancer metallb
 
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.5/config/manifests/metallb-native.yaml
 
 ------------------------------------------
 

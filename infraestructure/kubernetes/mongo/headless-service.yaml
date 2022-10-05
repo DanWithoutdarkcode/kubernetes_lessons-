@@ -5,10 +5,11 @@ metadata:
   labels:
     app: mongo
 spec:
+  selector:
+    app: mongo
   ports:
   - name: mongo
     port: 27017
     targetPort: 27017
-  clusterIP: None
-  selector:
-    app: mongo
+    protocol: TCP
+  #clusterIP: None
