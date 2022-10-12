@@ -30,8 +30,9 @@ spec:
         - name: vdata
           mountPath: /data/db       
           subPathExpr: $(POD_NAME)
-        #- name: mongo-volume
-        #  mountPath: /data/db           
+        - name: config
+          mountPath: /config/init.sh
+          subPath: init.sh       
         resources:
             limits:
               cpu: 200m
