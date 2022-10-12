@@ -20,18 +20,18 @@ spec:
       - name: vdata
         hostPath:
           path: /vdata 
-      #terminationGracePeriodSeconds: 10
       containers:
       - name: mongo
         image: mongo:4.2.23
         command: 
+        - bash
         - /config/init.sh
         volumeMounts:
+        - name: config
+          mountPath: /config 
         - name: vdata
           mountPath: /data/db       
           subPathExpr: $(POD_NAME)
-        - name: config
-          mountPath: /config 
         resources:
             limits:
               cpu: 200m
