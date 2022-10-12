@@ -3,10 +3,10 @@ kind: StatefulSet
 metadata:
   name: mongo
 spec:
+  serviceName: mongo
   selector:
     matchLabels:
       app: mongo
-  serviceName: mongo
   replicas: 3
   template:
     metadata:
@@ -14,6 +14,9 @@ spec:
         app: mongo
     spec:
       volumes:
+      - name: config
+        configMap:
+          name: "mongo-init" 
       - name: vdata
         hostPath:
           path: /vdata 
@@ -22,10 +25,7 @@ spec:
       - name: mongo
         image: mongo:4.2.23
         command: 
-        - mongod 
-        - "--bind_ip_all"
-        - "--replSet"
-        - rs0
+        - /config/init.sh
         volumeMounts:
         - name: vdata
           mountPath: /data/db       
@@ -40,6 +40,16 @@ spec:
               cpu: 100m
               memory: 200Mi
         env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          valueFrom:
+              secretKeyRef:
+                name: mongo-secret
+                key: user
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          valueFrom:
+              secretKeyRef:
+                name: mongo-secret
+                key: pass
         - name: POD_NAME
           valueFrom:
             fieldRef:
