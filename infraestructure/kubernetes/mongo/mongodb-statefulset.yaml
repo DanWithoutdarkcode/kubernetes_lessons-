@@ -31,8 +31,7 @@ spec:
           mountPath: /data/db       
           subPathExpr: $(POD_NAME)
         - name: config
-          mountPath: /config/init.sh
-          subPath: init.sh       
+          mountPath: /config 
         resources:
             limits:
               cpu: 200m
