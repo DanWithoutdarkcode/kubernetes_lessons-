@@ -3,8 +3,5 @@ kind: Kustomization
 
 resources:
   - secret-mongo.yaml
-  - mongodb-configmap.yaml
-  - mongo-svc-0.yaml
-  - mongo-svc-1.yaml
-  - mongo-svc-2.yaml
+  - headless-service.yaml
   - mongodb-statefulset-config-less.yaml

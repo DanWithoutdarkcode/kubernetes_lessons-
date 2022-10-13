@@ -2,7 +2,7 @@
 
 kubectl apply -k .
 
-kubcetl exec -it mongo-0 -- mongo
+kubectl exec -it mongo-0 -- mongo
 
 rs.initiate()
 
