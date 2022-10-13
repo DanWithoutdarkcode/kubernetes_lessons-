@@ -25,7 +25,7 @@ kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.5/confi
 
 ## Deploy hello world
 
-kubectl apply -f wdc-test-service.yaml
+kubectl apply -f test/wdc-test-service.yaml
 
 ## Ver servicios
 
