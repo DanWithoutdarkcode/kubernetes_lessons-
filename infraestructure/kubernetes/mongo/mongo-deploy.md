@@ -14,8 +14,8 @@ rs.initiate()
 
   rs.status()
 
-  rs.add("mongo-1.mongo:27017")
-  rs.add("mongo-2.mongo:27017")
+  rs.add("mongo-1.mongo-1:27017")
+  rs.add("mongo-2.mongo-1:27017")
 
 ### test
 
