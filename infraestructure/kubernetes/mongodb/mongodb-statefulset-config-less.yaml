@@ -31,3 +31,4 @@ spec:
         volumeMounts:
         - name: vdata
           mountPath: /data/db 
+          subPathExpr: $(POD_NAME)
