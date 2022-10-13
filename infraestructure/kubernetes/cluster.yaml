@@ -28,10 +28,6 @@ nodes:
     hostPort: 1080
     listenAddress: "192.168.137.129"
     protocol: udp
-  - containerPort: 443
-    hostPort: 443
-    listenAddress: "192.168.137.129"
-    protocol: TCP
   - containerPort: 32017
     hostPort: 32017
     listenAddress: "192.168.137.129"
