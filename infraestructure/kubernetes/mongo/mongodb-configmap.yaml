@@ -23,4 +23,4 @@ data:
     if [[ "${HOSTNAME}" == 'mongo-0' ]]; then
       inicia &
     fi    
-    mongod --replSet rs0 --bind_ip localhost,192.168.137.129,${HOSTNAME}
+    mongod --replSet rs0 --bind_ip ${HOSTNAME}
