@@ -6,7 +6,10 @@ spec:
   selector:
     app: mongo
     statefulset.kubernetes.io/pod-name: mongo-0
+  type: NodePort
   ports:
-    - protocol: TCP
+    - name: mongodb
+      protocol: TCP
       port: 27017
+      targetPort: 27017
       nodePort: 327017
