@@ -28,6 +28,21 @@ nodes:
     hostPort: 1080
     listenAddress: "192.168.137.129"
     protocol: udp
+  - containerPort: 443
+    hostPort: 443
+    listenAddress: "192.168.137.129"
+    protocol: TCP
+  - containerPort: 32017
+    hostPort: 32017
+    listenAddress: "192.168.137.129"
+    protocol: TCP
+  - containerPort: 32018
+    hostPort: 32018
+    listenAddress: "192.168.137.129"
+  - containerPort: 32019
+    hostPort: 32019
+    listenAddress: "192.168.137.129"
+    protocol: TCP
 - role: worker
   extraMounts:
     - hostPath: /data/volume
