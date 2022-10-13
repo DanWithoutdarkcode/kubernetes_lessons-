@@ -26,8 +26,6 @@ spec:
         - "--replSet"
         - rs0
         volumeMounts:
-        - name: config
-          mountPath: /config 
         - name: vdata
           mountPath: /data/db       
           subPathExpr: $(POD_NAME)
