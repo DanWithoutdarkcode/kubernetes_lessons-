@@ -26,8 +26,13 @@ mongo mongodb://mongo-0:27017,mongo-1:27017,mongo-2:27017
 
 mongo mongodb://mongo-0:27017,mongo-1:27017,mongo-2:27017/admin?replicaSet=rs0
 
+mongo mongodb://cm9vdA==:ZXhhbXBsZQ==@mongo-0:27017,mongo-1:27017,mongo-2:27017/admin?replicaSet=rs0
 
 mongo mongodb://192.168.137.129:32017,192.168.137.129:32018,192.168.137.129:32019/admin?replicaSet=rs0
+
+
+///////////////
+
 
 mongo mongodb://cm9vdA==:ZXhhbXBsZQ==@mongo-0:27017,mongo-1:27017,mongo-2:27017/admin?replicaSet=rs0
 
