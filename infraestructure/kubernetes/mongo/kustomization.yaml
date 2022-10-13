@@ -7,4 +7,4 @@ resources:
   - mongo-svc-0.yaml
   - mongo-svc-1.yaml
   - mongo-svc-2.yaml
-  - mongodb-statefulset.yaml
+  - mongodb-statefulset-config-less.yaml

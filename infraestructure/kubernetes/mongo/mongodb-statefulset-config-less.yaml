@@ -4,34 +4,33 @@ metadata:
   name: mongo
 spec:
   serviceName: mongo
-  replicas: 3
   selector:
-      matchLabels:
-        app: mongo
+    matchLabels:
+      app: mongo
+  replicas: 3
   template:
     metadata:
       labels:
         app: mongo
-    spec: 
+    spec:
       volumes:
-      - name: config
-        configMap:
-          name: "mongo-init" 
       - name: vdata
         hostPath:
-          path: /vdata        
+          path: /vdata 
       containers:
       - name: mongo
-        image: mongo:4.2.23   
-        command:
-        - bash
-        - /config/init.sh
+        image: mongo:4.2.23
+        command: 
+        - mongod 
+        - "--bind_ip_all"
+        - "--replSet"
+        - rs0
         volumeMounts:
         - name: config
-          mountPath: /config
+          mountPath: /config 
         - name: vdata
-          mountPath: /data/db
-          subPathExpr: $(POD_NAME)          
+          mountPath: /data/db       
+          subPathExpr: $(POD_NAME)
         resources:
             limits:
               cpu: 200m
@@ -54,7 +53,7 @@ spec:
           valueFrom:
             fieldRef:
               apiVersion: v1
-              fieldPath: metadata.name  
+              fieldPath: metadata.name    
         ports:
         - containerPort:  27017
           protocol: TCP
@@ -65,5 +64,4 @@ spec:
             - --eval
             - db.serverStatus()
           initialDelaySeconds: 180
-          timeoutSeconds: 60  
-
+          timeoutSeconds: 60 
