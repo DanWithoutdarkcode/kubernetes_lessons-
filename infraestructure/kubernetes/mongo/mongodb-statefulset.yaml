@@ -29,6 +29,9 @@ spec:
         volumeMounts:
         - name: config
           mountPath: /config 
+        - name: mongodb-scripts
+          mountPath: /docker-entrypoint-initdb.d
+          readOnly: true
         - name: vdata
           mountPath: /data/db       
           subPathExpr: $(POD_NAME)
@@ -40,16 +43,22 @@ spec:
               cpu: 100m
               memory: 200Mi
         env:
-        #- name: MONGO_INITDB_ROOT_USERNAME
-        #  valueFrom:
-        #      secretKeyRef:
-        #        name: mongo-secret
-        #        key: user
-        #- name: MONGO_INITDB_ROOT_PASSWORD
-        #  valueFrom:
-        #      secretKeyRef:
-        #        name: mongo-secret
-        #        key: pass
+        - name: mongodb-scripts
+          configMap:
+            name: mongodb-create-user
+            items:
+            - key: ensure-users.js
+              path: ensure-users.js
+        - name: MONGO_INITDB_ROOT_USERNAME
+          valueFrom:
+              secretKeyRef:
+                name: mongo-secret
+                key: user
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          valueFrom:
+              secretKeyRef:
+                name: mongo-secret
+                key: pass
         - name: POD_NAME
           valueFrom:
             fieldRef:

@@ -1,12 +1,12 @@
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 networking:
-  apiServerAddress: 192.168.137.129
+  apiServerAddress: 192.168.137.132
   apiServerPort: 6442
 #containerdConfigPatches:
 #  - |-
 #    [plugins."io.containerd.grpc.v1.cri".registry.mirrors."docker.io"]
-#      endpoint = ["http://192.168.137.129:8082"]
+#      endpoint = ["http://192.168.137.132:8082"]
 nodes:
 - role: control-plane
   kubeadmConfigPatches:
@@ -18,26 +18,30 @@ nodes:
   extraPortMappings:
   - containerPort: 80
     hostPort: 80
-    listenAddress: "192.168.137.129"
+    listenAddress: "192.168.137.132"
+    protocol: TCP
+  - containerPort: 8000
+    hostPort: 8000
+    listenAddress: "192.168.137.132"
     protocol: TCP
   - containerPort: 443
     hostPort: 443
-    listenAddress: "192.168.137.129"
+    listenAddress: "192.168.137.132"
     protocol: TCP
   - containerPort: 1080
     hostPort: 1080
-    listenAddress: "192.168.137.129"
+    listenAddress: "192.168.137.132"
     protocol: udp
   - containerPort: 32017
     hostPort: 32017
-    listenAddress: "192.168.137.129"
+    listenAddress: "192.168.137.132"
     protocol: TCP
   - containerPort: 32018
     hostPort: 32018
-    listenAddress: "192.168.137.129"
+    listenAddress: "192.168.137.132"
   - containerPort: 32019
     hostPort: 32019
-    listenAddress: "192.168.137.129"
+    listenAddress: "192.168.137.132"
     protocol: TCP
 - role: worker
   extraMounts:

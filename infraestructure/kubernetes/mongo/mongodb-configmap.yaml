@@ -19,6 +19,7 @@ data:
               { '_id': 2, host: 'mongo-2:27017' } \
             ] \
           }))"
+      echo "load rs0"
     }
     if [[ "${HOSTNAME}" == 'mongo-0' ]]; then
       inicia &
